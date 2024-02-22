@@ -1,5 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "../../Components/Banner/Banner";
+import OrderOnline from "../../Components/OrderOnline/OrderOnline";
+import PopularMenus from "../../Components/PopularMenus/PopularMenus";
+import BannerTwo from "../../Components/BannerTwo/BannerTwo";
 
 const Home = () => {
   return (
@@ -9,6 +12,9 @@ const Home = () => {
       </Helmet>
       <div className="">
         <Banner></Banner>
+        <OrderOnline></OrderOnline>
+        <BannerTwo></BannerTwo>
+        <PopularMenus></PopularMenus>
       </div>
     </>
   );

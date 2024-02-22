@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Margherita Pizza",
+        "description": "Classic Italian pizza topped with tomato sauce, fresh mozzarella cheese, and basil leaves.",
+        "image": "https://plus.unsplash.com/premium_photo-1682097540800-0bb59fa4b91e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "pizza",
+        "price": 11.99
+    },
+    {
+        "name": "Cheeseburger",
+        "description": "Beef patty topped with cheddar cheese, lettuce, tomato, onion, and pickles, served on a sesame seed bun with fries.",
+        "image": "https://plus.unsplash.com/premium_photo-1684923610850-3707de05ffa6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "burger",
+        "price": 9.49
+    },
+    {
+        "name": "Chicken Alfredo",
+        "description": "Pasta tossed in a creamy Alfredo sauce with grilled chicken breast, served with garlic bread.",
+        "image": "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "pasta",
+        "price": 14.75
+    },
+    {
+        "name": "Fish and Chips",
+        "description": "Beer-battered cod fillets served with crispy fries, tartar sauce, and malt vinegar.",
+        "image": "https://images.unsplash.com/photo-1580217593608-61931cefc821?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "seafood",
+        "price": 13.99
+    },
+    {
+        "name": "Sushi Platter",
+        "description": "Assorted sushi rolls including California rolls, tuna rolls, and salmon nigiri, served with soy sauce, pickled ginger, and wasabi.",
+        "image": "https://plus.unsplash.com/premium_photo-1664648184236-115c6e36648e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "sushi",
+        "price": 24.99
+    },
+    {
+        "name": "Chocolate Lava Cake",
+        "description": "Warm chocolate cake with a gooey molten center, served with vanilla ice cream and chocolate sauce.",
+        "image": "https://images.unsplash.com/photo-1673551490812-eaee2e9bf0ef?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "dessert",
+        "price": 8.99
+    },
+    {
+        "name": "Chicken Wings",
+        "description": "Crispy chicken wings tossed in your choice of buffalo, barbecue, or honey garlic sauce, served with celery sticks and blue cheese dressing.",
+        "image": "https://images.unsplash.com/photo-1585703900468-13c7a978ad86?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "appetizer",
+        "price": 10.99
+    },
+    {
+        "name": "Tiramisu",
+        "description": "Classic Italian dessert made with layers of coffee-soaked ladyfingers and mascarpone cheese, dusted with cocoa powder.",
+        "image": "https://images.unsplash.com/photo-1631206753348-db44968fd440?q=80&w=1450&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "dessert",
+        "price": 7.50
+    },
+    {
+        "name": "Beef Tacos",
+        "description": "Soft corn tortillas filled with seasoned ground beef, lettuce, cheese, salsa, and sour cream.",
+        "image": "https://plus.unsplash.com/premium_photo-1661730314652-911662c0d86e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "tacos",
+        "price": 9.99
+    },
+    {
+        "name": "BBQ Ribs",
+        "description": "Slow-cooked pork ribs smothered in barbecue sauce, served with coleslaw and cornbread.",
+        "image": "https://images.unsplash.com/photo-1593030668930-8130abedd2b0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "entree",
+        "price": 18.99
+    },
+    {
+        "name": "Shrimp Scampi",
+        "description": "Sautéed shrimp in a garlic butter sauce served over linguine pasta.",
+        "image": "https://images.unsplash.com/photo-1633504581786-316c8002b1b9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "popular",
+        "price": 16.50
+    },
+    {
+        "name": "Margarita Cocktail",
+        "description": "Classic cocktail made with tequila, triple sec, lime juice, and agave syrup, served on the rocks with a salted rim.",
+        "image": "https://plus.unsplash.com/premium_photo-1661342430103-778ac87489bc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "beverage",
+        "price": 9.00
+    },
+    {
+        "name": "Mediterranean Platter",
+        "description": "A selection of hummus, tabbouleh, falafel, stuffed grape leaves, olives, and pita bread.",
+        "image": "https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?q=80&w=1375&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "popular",
+        "price": 22.99
+    },
+    {
+        "name": "Apple Pie",
+        "description": "Homemade apple pie with a flaky crust, served warm with a scoop of vanilla ice cream.",
+        "image": "https://images.unsplash.com/photo-1506127946181-abb01a32593c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "dessert",
+        "price": 6.99
+    },
+    {
+        "name": "Loaded Nachos",
+        "description": "Tortilla chips topped with melted cheese, seasoned ground beef, jalapeños, sour cream, guacamole, and salsa.",
+        "image": "https://images.unsplash.com/photo-1582169296194-e4d644c48063?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "appetizer",
+        "price": 11.49
+    },
+    {
+        "name": "Pho",
+        "description": "Vietnamese noodle soup with beef or chicken, rice noodles, bean sprouts, basil, and lime.",
+        "image": "https://images.unsplash.com/photo-1631709497146-a239ef373cf1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "soup",
+        "price": 12.75
+    },
+    {
+        "name": "Bruschetta",
+        "description": "Toasted bread topped with diced tomatoes, garlic, basil, and olive oil.",
+        "image": "https://plus.unsplash.com/premium_photo-1663127718713-c90bab585483?q=80&w=1524&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "popular",
+        "price": 8.25
+    },
+    {
+        "name": "Pad Thai",
+        "description": "Stir-fried rice noodles with shrimp, tofu, bean sprouts, peanuts, and tamarind sauce.",
+        "image": "https://plus.unsplash.com/premium_photo-1664472637341-3ec829d1f4df?q=80&w=1450&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "entree",
+        "price": 15.99
+    },
+    {
+        "name": "Mushroom Risotto",
+        "description": "Creamy risotto cooked with mushrooms, onions, garlic, white wine, and Parmesan cheese.",
+        "image": "https://plus.unsplash.com/premium_photo-1695030934293-e8c889c3bbd8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "popular",
+        "price": 17.50
+    },
+    {
+        "name": "Key Lime Pie",
+        "description": "Tangy key lime filling in a graham cracker crust, topped with whipped cream and lime zest.",
+        "image": "https://images.unsplash.com/photo-1502307837336-d59cca9408a9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "category": "dessert",
+        "price": 7.99
+    }
+]
