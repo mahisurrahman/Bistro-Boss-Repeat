@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Contact = () => {
   return (
-    <div className="bg-zinc-950 text-zinc-100 py-28">
+    <div className="bg-zinc-950 text-zinc-100 py-28 w-10/12 mx-auto">
       <Helmet>
         <title>Bistro Boss | Contact</title>
       </Helmet>
@@ -92,9 +92,9 @@ const Contact = () => {
               Contact Information
             </h2>
             <p className="text-gray-800">
-              Phone: (123) 456-7890
+              Phone: (+880) 1621754583
               <br />
-              Email: info@bistroboss.com
+              Email: mahisur.rahman.001@gmail.com
             </p>
             <div className="mt-4 flex items-center space-x-4">
               <div className="grid grid-flow-col gap-4 text-5xl">
