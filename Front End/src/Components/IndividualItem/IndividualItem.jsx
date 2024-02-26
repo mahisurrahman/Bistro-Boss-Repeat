@@ -1,7 +1,37 @@
-const IndividualItem = ({item}) => {
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
+// import axios from "axios";
+import { axiosSecure } from "../../Utils/UseAxiosSecure";
 
-   const handleIndividualItem = (id) =>{
-      console.log(id);
+const IndividualItem = ({item}) => {
+  const {user} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+   const handleIndividualItem = (foodItem) =>{
+      if(user && user.email){
+        const cartItem = {
+          menuId: foodItem._id,
+          email: user.email,
+          menuName: foodItem.name,
+          menudescription: foodItem.description,
+          menuImage: foodItem.image,
+          menuCategory: foodItem.category,
+          menuPrice: foodItem.price, 
+        }
+       axiosSecure.post('/carts', cartItem)
+       .then(res=>{
+        if(res.data.insertedId){
+          Swal.fire('Successfully Added to the Cart');
+        }
+       }) 
+       .catch(err=> console.log(err))
+
+      }else{
+        navigate('/login', {state: {from: location}});
+      }
    }
 
   return (
@@ -19,7 +49,7 @@ const IndividualItem = ({item}) => {
         <div className="card-actions">
           <button
             onClick={() => {
-              handleIndividualItem(item._id);
+              handleIndividualItem(item);
             }}
             className="btn btn-warning"
           >

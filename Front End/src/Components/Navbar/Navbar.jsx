@@ -7,7 +7,7 @@ import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -49,7 +49,7 @@ const Navbar = () => {
             <li className="tracking-wider font-semibold duration-700 hover:text-orange-600 hover:cursor-pointer hover:duration-700">
               Dashboard
             </li>
-            <span className="flex items-center gap-2"><FaShoppingCart className="text-2xl"></FaShoppingCart>+0</span>
+            <span className="duration-700 flex items-center gap-2 hover:text-orange-600 hover:cursor-pointer hover:duration-700"><FaShoppingCart className="text-2xl"></FaShoppingCart>+0</span>
             <img
               className="duration-700 w-10 h-10 rounded-full object-cover border-2 border-orange-500 hover:scale-150 hover:duration-700"
               src={user.photoURL}
