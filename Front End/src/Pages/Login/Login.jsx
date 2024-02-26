@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaBurger } from "react-icons/fa6";
 import "./Login.css";
 import { useContext } from "react";
@@ -8,6 +8,9 @@ import Swal from "sweetalert2";
 const Login = () => {
   const { logIn, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -17,7 +20,7 @@ const Login = () => {
     logIn(email, password).then((result) => {
       console.log(result);
       Swal.fire("Successfully Logged In");
-      navigate("/");
+      navigate(from, {replace:true});
     });
   };
 

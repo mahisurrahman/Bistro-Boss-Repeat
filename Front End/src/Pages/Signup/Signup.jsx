@@ -1,5 +1,5 @@
 import { FaPizzaSlice } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
@@ -9,6 +9,9 @@ import Swal from "sweetalert2";
 const Signup = () => {
   const {createUser, googleSignIn, updateUserDetails} = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
 
   const {
     register,
@@ -28,7 +31,7 @@ const Signup = () => {
       updateUserDetails(name, email, password, photo)
       .then(response=>{
         Swal.fire(`Successfully Created ${name}`, response);
-        navigate('/');
+        navigate(from, {replace:true});
       })
      
     })
