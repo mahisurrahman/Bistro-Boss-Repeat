@@ -1,21 +1,53 @@
 import { FaPizzaSlice } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Signup = () => {
+  const {createUser, googleSignIn, updateUserDetails} = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const onSubmit = data =>{
+    console.log(data);
+    const email = data.email;
+    const password = data.password;
+    const photo = data.photo;
+    const name = data.name;
+    createUser(email, password)
+    .then(result => {
+      console.log(result);
+      updateUserDetails(name, email, password, photo)
+      .then(response=>{
+        Swal.fire(`Successfully Created ${name}`, response);
+        navigate('/');
+      })
+     
+    })
+  }
+
+
+  const handleGoogle = () =>{
+    googleSignIn()
+    .then(result => {
+      Swal.fire(`Successfully Created`, result);
+      navigate('/');
+    })
+  }
 
   return (
     <div className="bg-lime-500 w-full h-screen flex items-center font-avent-pro">
       <div className="w-10/12 mx-auto grid grid-cols-2 items-center justify-center gap-10">
         <div className="h-[500px]">
-          <form onSubmit={handleSubmit()} className="border-4 px-10 py-5 rounded-2xl border-zinc-950 h-[500px]">
+          <form onSubmit={handleSubmit(onSubmit)} className="border-4 px-10 py-5 rounded-2xl border-zinc-950 h-[500px]">
             <h1 className="text-3xl text-center text-zinc-950 font-extrabold uppercase underline">
               Sign Up with Details
             </h1>
@@ -23,7 +55,6 @@ const Signup = () => {
               className="text-md font-bold mt-4 w-full py-2 rounded-lg px-5 outline-none"
               type="text"
               name="photo"
-              id=""
               placeholder="Photo URL"
               {...register('photo', {required: true})} 
             />
@@ -33,7 +64,6 @@ const Signup = () => {
               className="text-md font-bold mt-4 w-full py-2 rounded-lg px-5 outline-none"
               type="text"
               name="name"
-              id=""
               placeholder="name"
               {...register('name', {required: true})} 
             />
@@ -43,7 +73,6 @@ const Signup = () => {
               className="text-md font-bold mt-4 w-full py-2 rounded-lg px-5 outline-none"
               type="email"
               name="email"
-              id=""
               placeholder="email"
               {...register('email', {required: true})} 
             />
@@ -53,7 +82,6 @@ const Signup = () => {
               className="text-md font-bold mt-4 w-full py-2 rounded-lg px-5 outline-none"
               type="password"
               name="password"
-              id=""
               placeholder="password"
               {...register('password', {required: true})} 
             />
@@ -77,7 +105,7 @@ const Signup = () => {
               </Link>
             </div>
             <div className="mt-4 flex justify-center items-center">
-              <button className="duration-700 text-xl px-6 py-1 font-extrabold bg-zinc-950 text-orange-500 border-2 border-zinc-950 rounded-lg uppercase hover:border-zinc-100 hover:bg-zinc-100 hover:cursor-pointer hover:duration-700">
+              <button onClick={handleGoogle} className="duration-700 text-xl px-6 py-1 font-extrabold bg-zinc-950 text-orange-500 border-2 border-zinc-950 rounded-lg uppercase hover:border-zinc-100 hover:bg-zinc-100 hover:cursor-pointer hover:duration-700">
                 Sign Up With Google
               </button>
             </div>

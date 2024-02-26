@@ -1,6 +1,21 @@
-import { Link } from "react-router-dom";
+/* eslint-disable no-unused-vars */
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logOut().then((result) => {
+      Swal.fire("Successfully Logged Out");
+      navigate("/");
+    });
+  };
+
   const links = (
     <div className="flex justify-between items-center gap-5 text-xl font-normal">
       <Link to="/">
@@ -8,14 +23,9 @@ const Navbar = () => {
           Home
         </li>
       </Link>
-      <Link to="/contact">
+      <Link to="/about">
         <li className="tracking-wider font-semibold duration-700 hover:text-orange-600 hover:cursor-pointer hover:duration-700">
-          Contact Us
-        </li>
-      </Link>
-      <Link>
-        <li className="tracking-wider font-semibold duration-700 hover:text-orange-600 hover:cursor-pointer hover:duration-700">
-          Dashboard
+          About Us
         </li>
       </Link>
       <Link to="/menus">
@@ -28,6 +38,25 @@ const Navbar = () => {
           Our Shop
         </li>
       </Link>
+      <Link to="/contact">
+        <li className="tracking-wider font-semibold duration-700 hover:text-orange-600 hover:cursor-pointer hover:duration-700">
+          Contact Us
+        </li>
+      </Link>
+      {user ? (
+          <Link className="flex items-center gap-5">
+            <li className="tracking-wider font-semibold duration-700 hover:text-orange-600 hover:cursor-pointer hover:duration-700">
+              Dashboard
+            </li>
+            <img
+              className="duration-700 w-10 h-10 rounded-full object-cover border-2 border-orange-500 hover:scale-150 hover:duration-700"
+              src={user.photoURL}
+              alt=""
+            />
+          </Link>
+      ) : (
+        <></>
+      )}
     </div>
   );
   return (
@@ -72,9 +101,20 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <button className="duration-700 px-4 py-2 hover:bg-white rounded-lg text-xl font-bold bg-orange-600 text-white hover:text-black hover:cursor-pointer hover:border-2 hover:border-orange-600 hover:duration-700">
-          Sign In
-        </button>
+        {user ? (
+          <button
+            onClick={handleLogout}
+            className="duration-700 px-4 py-2 hover:bg-white rounded-lg text-xl font-bold bg-orange-600 text-white hover:text-black hover:cursor-pointer hover:border-2 hover:border-orange-600 hover:duration-700"
+          >
+            Log Out
+          </button>
+        ) : (
+          <Link to="/signup">
+            <button className="duration-700 px-4 py-2 border-orange-600 hover:bg-white rounded-lg text-xl font-bold bg-orange-600 text-white hover:text-black hover:cursor-pointer border-2 hover:border-orange-600 hover:duration-700">
+              Sign In
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

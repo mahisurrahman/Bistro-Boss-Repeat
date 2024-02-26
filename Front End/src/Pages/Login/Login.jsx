@@ -1,8 +1,33 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBurger } from "react-icons/fa6";
-import './Login.css';
+import "./Login.css";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const { logIn, googleSignIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    logIn(email, password).then((result) => {
+      console.log(result);
+      Swal.fire("Successfully Logged In");
+      navigate("/");
+    });
+  };
+
+  const handleGoogle = () => {
+    googleSignIn().then((result) => {
+      Swal.fire(`Successfully Created`, result);
+      navigate("/");
+    });
+  };
+
   return (
     <div className="bg-orange-500 w-full h-screen flex items-center font-avent-pro">
       <div className="w-10/12 mx-auto grid grid-cols-2 items-center justify-center gap-10">
@@ -19,7 +44,10 @@ const Login = () => {
           </div>
         </div>
         <div className="h-[500px]">
-          <form className="border-4 px-10 py-10 rounded-2xl border-zinc-100 h-[500px]">
+          <form
+            onSubmit={handleLogin}
+            className="border-4 px-10 py-10 rounded-2xl border-zinc-100 h-[500px]"
+          >
             <h1 className="text-4xl text-center text-zinc-100 font-extrabold uppercase underline">
               Login with Details
             </h1>
@@ -27,7 +55,6 @@ const Login = () => {
               className="text-xl font-bold mt-8 w-full py-3 rounded-lg px-5 outline-none"
               type="email"
               name="email"
-              id=""
               placeholder="email"
             />
             <br />
@@ -35,7 +62,6 @@ const Login = () => {
               className="text-xl font-bold mt-8 w-full py-3 rounded-lg px-5 outline-none"
               type="password"
               name="password"
-              id=""
               placeholder="password"
             />
             <br />
@@ -47,11 +73,22 @@ const Login = () => {
               />
             </div>
             <div className="mt-5 flex justify-between items-center">
-              <h1 className="underline text-lg font-bold text-zinc-100 uppercase tracking-widest">New to Bistro Boss?</h1>
-              <Link to="/signup"><button className="duration-700 text-xl px-6 py-1 font-extrabold bg-zinc-100 text-orange-500 border-2 rounded-lg uppercase hover:border-zinc-950 hover:bg-zinc-950 hover:cursor-pointer hover:duration-700">Sign Up</button></Link>
+              <h1 className="underline text-lg font-bold text-zinc-100 uppercase tracking-widest">
+                New to Bistro Boss?
+              </h1>
+              <Link to="/signup">
+                <button className="duration-700 text-xl px-6 py-1 font-extrabold bg-zinc-100 text-orange-500 border-2 rounded-lg uppercase hover:border-zinc-950 hover:bg-zinc-950 hover:cursor-pointer hover:duration-700">
+                  Sign Up
+                </button>
+              </Link>
             </div>
             <div className="mt-5 flex justify-center items-center">
-            <button className="duration-700 text-xl px-6 py-1 font-extrabold bg-zinc-100 text-orange-500 border-2 rounded-lg uppercase hover:border-zinc-950 hover:bg-zinc-950 hover:cursor-pointer hover:duration-700">Login With Google</button>
+              <button
+                onClick={handleGoogle}
+                className="duration-700 text-xl px-6 py-1 font-extrabold bg-zinc-100 text-orange-500 border-2 rounded-lg uppercase hover:border-zinc-950 hover:bg-zinc-950 hover:cursor-pointer hover:duration-700"
+              >
+                Login With Google
+              </button>
             </div>
           </form>
         </div>
