@@ -6,6 +6,10 @@ import MenuPage from "../Pages/Menu/MenuPage";
 import ShopPage from "../Pages/Shop/ShopPage";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
+import PrivateRoutes from "./PrivateRoutes";
+import Dashboard from "../Layouts/Dashboard/Dashboard";
+import Cart from "../Pages/Dashboard/Cart/Cart";
+import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 
 const router = createBrowserRouter([
   {
@@ -17,15 +21,15 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/contact",
+        path: "contact",
         element: <Contact></Contact>,
       },
       {
-        path: "/menus",
+        path: "menus",
         element: <MenuPage></MenuPage>,
       },
       {
-        path: "/shop",
+        path: "shop",
         element: <ShopPage></ShopPage>,
       }
     ],
@@ -37,6 +41,20 @@ const router = createBrowserRouter([
   {
     path: 'signup',
     element: <Signup></Signup>,
+  },
+  {
+    path: 'dashboard',
+    element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+    children: [
+      {
+        path: 'userhome',
+        element: <UserHome></UserHome>,
+      },
+      {
+        path: 'cart',
+        element: <Cart></Cart>,
+      }
+    ]
   }
 ]);
 

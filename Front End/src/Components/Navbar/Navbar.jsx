@@ -4,11 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { FaShoppingCart } from "react-icons/fa";
+import UseCart from "../../Utils/UseCart";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  // console.log(user);
   const navigate = useNavigate();
+  const [cart, refetch] = UseCart();
 
   const handleLogout = () => {
     logOut().then((result) => {
@@ -45,17 +46,21 @@ const Navbar = () => {
         </li>
       </Link>
       {user ? (
-          <Link className="flex items-center gap-5">
-            <li className="tracking-wider font-semibold duration-700 hover:text-orange-600 hover:cursor-pointer hover:duration-700">
-              Dashboard
-            </li>
-            <span className="duration-700 flex items-center gap-2 hover:text-orange-600 hover:cursor-pointer hover:duration-700"><FaShoppingCart className="text-2xl"></FaShoppingCart>+0</span>
+        <div className="flex items-center gap-5">
+          <Link to="/dashboard/cart">
+            <span className="duration-700 flex items-center gap-2 hover:text-orange-600 hover:cursor-pointer hover:duration-700">
+              <FaShoppingCart className="text-2xl"></FaShoppingCart>+
+              {cart.length}
+            </span>
+          </Link>
+          <Link to="/dashboard/userhome" className="flex items-center gap-5">
             <img
               className="duration-700 w-10 h-10 rounded-full object-cover border-2 border-orange-500 hover:scale-150 hover:duration-700"
               src={user.photoURL}
               alt=""
             />
           </Link>
+        </div>
       ) : (
         <></>
       )}

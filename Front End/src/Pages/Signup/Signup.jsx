@@ -5,11 +5,13 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import UseAxiosSecure from "../../Utils/UseAxiosSecure";
 
 const Signup = () => {
   const {createUser, googleSignIn, updateUserDetails} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const axiosSecure = UseAxiosSecure();
 
   const from = location.state?.from?.pathname || '/';
 
@@ -29,9 +31,20 @@ const Signup = () => {
     .then(result => {
       console.log(result);
       updateUserDetails(name, email, password, photo)
-      .then(response=>{
-        Swal.fire(`Successfully Created ${name}`, response);
-        navigate(from, {replace:true});
+      .then(()=>{
+        const userDetails= {
+          userName: name, 
+          userEmail: email, 
+          userPhoto: photo, 
+          userPassword: password
+        }
+        axiosSecure.post('/users', userDetails )
+        .then(res=>{
+          if(res.data.insertedId){
+            Swal.fire(`Successfully Created`);
+            navigate(from, {replace:true});
+          }
+        })
       })
      
     })

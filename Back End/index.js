@@ -11,7 +11,6 @@ const port = process.env.PORT || 7000;
 app.use(express.json());
 app.use(cors())
 
-
 //cors works//
 // {
 //     origin: ['http://localhost:5173/'],
@@ -71,8 +70,17 @@ async function run() {
     })
 
     //Getting all Cart Items//
+    // app.get('/carts', async(req, res)=>{
+    //   const carts = cartCollection.find();
+    //   const result = await carts.toArray();
+    //   res.send(result);
+    // })
+
+    //Getting a Single Cart Item //
     app.get('/carts', async(req, res)=>{
-      const carts = cartCollection.find();
+      const email = req.query.email;
+      const query = {email: email};
+      const carts = cartCollection.find(query);
       const result = await carts.toArray();
       res.send(result);
     })

@@ -6,7 +6,8 @@ export default {
   ],
   theme: {
     fontFamily:{
-      'avent-pro': ["'Advent Pro', sans-serif;"]
+      'avent-pro': ["'Advent Pro', sans-serif;"],
+      'poppins' : ["'Poppins', sans-serif;"]
     },
     extend: {},
   },

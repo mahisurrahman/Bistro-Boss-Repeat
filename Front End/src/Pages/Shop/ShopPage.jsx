@@ -4,8 +4,12 @@ import UseCategory from "../../Utils/UseCategory";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import IndividualItem from "../../Components/IndividualItem/IndividualItem";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Loading from "../../Components/Loading/Loading";
 
 const ShopPage = () => {
+  const { loading } = useContext(AuthContext);
   const [
     appetizerCategory,
     dessertCategory,
@@ -30,7 +34,10 @@ const ShopPage = () => {
           subTitle={"Get Your Desired Dish From Us"}
         ></MenuPageBanner>
         <div className="w-11/12 mx-auto py-20">
-          <Tabs>
+          {
+            loading ? <div className="w-full flex justify-center items-center"><Loading></Loading></div>
+            : 
+            <Tabs>
             <TabList className="flex justify-center">
               <Tab>Appetizer</Tab>
               <Tab>Dessert</Tab>
@@ -123,6 +130,7 @@ const ShopPage = () => {
               </div>
             </TabPanel>
           </Tabs>
+          }
         </div>
       </div>
     </div>
