@@ -35,7 +35,8 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
 
-    //Collections//
+  
+    //Collections// Add More Collections Here //
     const menuCollection = client.db('bistroRepeat').collection('menu');
     const cartCollection = client.db('bistroRepeat').collection('carts');
     const userCollection = client.db('bistroRepeat').collection('users');
